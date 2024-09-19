@@ -2,14 +2,22 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "description": "jwt api ",
   "dependencies": {
-    "express": "^4.21.0"
+    "@prisma/client": "^5.19.1",
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.19.1"
   }
 }
