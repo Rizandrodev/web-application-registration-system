@@ -11,7 +11,6 @@ router.get("/users-list",async (req,res)=>{
     res.status(201).json(users);
     }catch(err){
         res.status(500).json({message:`falha no servidor ${err}`})
-
     }
 })
 export default router
