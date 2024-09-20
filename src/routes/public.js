@@ -37,8 +37,8 @@ router.post('/sign',async(req,res)=>{
 //login
 router.post('/login',async(req,res)=>{
     try{
-        const {email,senha}=req.body
-        
+        const {email,password}=req.body
+    
         const user=await prisma.user.findUnique({ 
             where:{
                 email:email
@@ -47,13 +47,13 @@ router.post('/login',async(req,res)=>{
         if(!user){
             res.status(400).send({message:`usuario nao encontrado`})
         }
-        const compararenha=bcrypt.compare(senha,user.password)
+        const compararenha=await bcrypt.compare(password,user.password)
 
         if(!compararenha){
             res.status(401).send({message:`senha inconrrecta`})
         }
         const token=jwt.sign({id:user.id},JWT_SCRET,{expiresIn:'7d'})
-        res.status(200).send({user,token})
+        res.status(200).send(token)
 
     }catch(err){
     res.status(400).send({message:message.err})
