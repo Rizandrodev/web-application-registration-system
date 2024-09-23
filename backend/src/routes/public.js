@@ -9,7 +9,7 @@ const prisma=new PrismaClient()
 const JWT_SCRET=process.env.JWT_SCRET
 
 
-router.get('test',(req,res)=>{
+router.get('/   test',(req,res)=>{
     res.send('test')
 })
 
@@ -38,10 +38,11 @@ router.post('/sign',async(req,res)=>{
 router.post('/login',async(req,res)=>{
     try{
         const {email,password}=req.body
-    
+        
         const user=await prisma.user.findUnique({ 
             where:{
                 email:email
+                
             }
         })
         if(!user){
@@ -56,9 +57,9 @@ router.post('/login',async(req,res)=>{
         res.status(200).send(token)
 
     }catch(err){
-    res.status(400).send({message:message.err})
+    res.status(400).send({message:err})
     }
 
 })
 
-export  default router;
+export  default router; 
