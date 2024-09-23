@@ -1,5 +1,6 @@
 import {BrowserRouter,Route,Routes,Navigate} from "react-router-dom"
 import { Cadastro } from "./pages/Cadastro"
+import { Login } from "./pages/login"
 import { Lista } from "./pages/lista"
 /*"email":"Lucas@gmail.com",
   "password":"78d5d54d" */
@@ -12,7 +13,8 @@ function App() {
     </header>
     <Routes>
         <Route path="/" element={<Cadastro/>} />
-        <Route path="/login" element={<Cadastro/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/list" element={<Lista/>} />
     </Routes>
     </BrowserRouter>
   )
